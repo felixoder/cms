@@ -22,13 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6LdovYApAAAAAE081E_i8uQCKw1V4t5PhvDTm3TJ'  # Consider using your secret key
+# Consider using your secret key
+SECRET_KEY = 'f2zx8*lb*em*-*b+!&1lpp&$_9q9kmkar+l3x90do@s(+sr&x7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # ALLOWED_HOSTS = ['smswithdjango.herokuapp.com']
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','localhost', '.onrender.com']  # Not recommended but useful in dev mode
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost',
+                 '.onrender.com']  # Not recommended but useful in dev mode
 
 
 # Application definition
@@ -44,6 +46,11 @@ INSTALLED_APPS = [
 
     # My Apps
     'main_app.apps.MainAppConfig'
+
+
+    'captcha',
+
+
 ]
 
 MIDDLEWARE = [
@@ -67,7 +74,7 @@ ROOT_URLCONF = 'college_management_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['main_app/templates'], #My App Templates
+        'DIRS': ['main_app/templates'],  # My App Templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,14 +95,14 @@ WSGI_APPLICATION = 'college_management_system.wsgi.application'
 
 DATABASES = {
 
-    
-   'default': {
+
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'railway',
-        'USER':'postgres',
-        'PASSWORD':'6bdc4a*FbbfDfDfabDEe23GA3Ca3-F6A',
-        'HOST':'monorail.proxy.rlwy.net',
-        'PORT':'46432'
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '6bdc4a*FbbfDfDfabDEe23GA3Ca3-F6A',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '46432'
     }
 }
 
@@ -142,8 +149,8 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build' 'static')
-STATICFILES_DIRS =(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build' 'static')
+STATICFILES_DIRS = (BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTH_USER_MODEL = 'main_app.CustomUser'
 AUTHENTICATION_BACKENDS = ['main_app.EmailBackend.EmailBackend']
@@ -156,9 +163,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_ADDRESS') 
+EMAIL_HOST_USER = os.environ.get('EMAIL_ADDRESS')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = "School Management System <admin@admin.com>"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+RECAPTCHA_PUBLIC_KEY = '6LcsxYApAAAAACo0FMeyn4dALy96ppqZOS97mOtT'
+RECAPTCHA_PRIVATE_KEY = '6LcsxYApAAAAACVrbRcOsZHPwWVKkb7hQ0SgyENK'
