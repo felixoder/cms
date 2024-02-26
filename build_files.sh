@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Install Django
-pip install django
 
 # Install other requirements from requirements.txt
 pip install -r requirements.txt
