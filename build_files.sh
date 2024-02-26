@@ -7,4 +7,4 @@ pip install django
 pip install -r requirements.txt
 
 # Run collectstatic to gather static files
-python manage.py collectstatic --noinput
+python manage.py collectstatic 
