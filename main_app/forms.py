@@ -1,6 +1,5 @@
 from django import forms
 from django.forms.widgets import DateInput, TextInput
-from captcha.fields import ReCaptchaField  # Import the ReCaptchaField
 from .models import *
 
 
@@ -23,7 +22,6 @@ class CustomUserForm(FormSettings):
         'password': forms.PasswordInput(),
     }
     profile_pic = forms.ImageField()
-    captcha = ReCaptchaField()
 
     def __init__(self, *args, **kwargs):
         super(CustomUserForm, self).__init__(*args, **kwargs)
